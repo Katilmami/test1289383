@@ -13,7 +13,7 @@ jobs:
     - name: Extract ngrok
       run: unzip ngrok.zip
     - name: Auth
-      run: ./ngrok/ngrok authtoken $NGROK_AUTH_TOKEN
+      run: ./ngrok authtoken $NGROK_AUTH_TOKEN
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Enable TS
@@ -21,4 +21,4 @@ jobs:
     - run: sudo ufw allow 3389
     - run: sudo apt-get update && sudo apt-get install -y xrdp
     - name: Create Tunnel
-      run: ./ngrok/ngrok tcp 3389
+      run: ./ngrok tcp 3389
