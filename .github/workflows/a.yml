@@ -38,7 +38,7 @@ jobs:
         netsh advfirewall firewall add rule name="VNC Server" dir=in action=allow program="C:\Program Files\RealVNC\VNC Server\vncserver.exe" enable=yes
         Start-Service -Name "VNCServer"
         "@ > $ScriptPath
-        powershell -File $ScriptPath -env VNC_PASSWORD="Baban_122"
+        powershell -File $ScriptPath -ArgumentList "-env VNC_PASSWORD=`"Baban_122`""
       shell: PowerShell
     - name: Create Tunnel with ngrok
       run: .\ngrok\ngrok.exe tcp 5900
